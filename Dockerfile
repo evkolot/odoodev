@@ -46,12 +46,6 @@ RUN apt-get update && \
     pip --version
 
 
-#######
-# ENV #
-#######
-ENV OPENERP_SERVER=/mnt/config/odoo-server.conf
-
-
 ########################
 # docker configuration #
 ########################
