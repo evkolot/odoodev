@@ -28,12 +28,12 @@ DB_ARGS=("--db_user" $USER "--db_password" $PASSWORD "--db_host" $HOST "--db_por
 # fi
 
 case "$1" in
-	  -- | openerp-server | /mnt/odoo-source/odoo-bin)
+	  -- | openerp-server | /mnt/odoo-source/openerp-server)
 		    shift
-		    exec /mnt/odoo-source/odoo-bin "${DB_ARGS[@]}" "$@"
+		    exec /mnt/odoo-source/openerp-server "${DB_ARGS[@]}" "$@"
 		    ;;
 	  -*)
-		    exec /mnt/odoo-source/odoo-bin "${DB_ARGS[@]}" "$@"
+		    exec /mnt/odoo-source/openerp-server "${DB_ARGS[@]}" "$@"
 		    ;;
 	  *)
 		    exec "$@"
