@@ -50,7 +50,8 @@ RUN apt-get update && \
 # docker configuration #
 ########################
 COPY ./entrypoint.sh /
-RUN adduser --system --quiet --shell=/bin/bash --home=/opt/odoo --group odoo
+RUN adduser --system --quiet --shell=/bin/bash --home=/opt/odoo --group odoo && \
+    chmod +x /entrypoint.sh
 EXPOSE 8069 8072 8080
 USER odoo
 VOLUME ["/mnt/odoo-source/", \
