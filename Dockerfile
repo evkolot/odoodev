@@ -5,6 +5,7 @@ FROM debian:jessie
 ################
 RUN apt-get update && \
     apt-get install -y moreutils && \
+    apt-get install -y vim && \
     apt-get install -y git && \
     apt-get install -y python-pip && \
     apt-get install -y libffi-dev libssl-dev && \
@@ -63,4 +64,4 @@ VOLUME ["/mnt/odoo-source/", \
 # we don't add /mnt/odoo-source, /mnt/addons, /mnt/config to VOLUME in order to allow modify theirs content in inherited dockers
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/mnt/odoo-source/openerp-server"]
+CMD ["/mnt/odoo-source/openerp-server", "--addons-path=/mnt/odoo-source/addons,/mnt/odoo-source/openerp/addons,/mnt/addons/extra"]
